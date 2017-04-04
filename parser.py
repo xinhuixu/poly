@@ -76,7 +76,7 @@ def parse_file( fname, edges, transform, screen, color ):
                       float(args[3]), float(args[4]), step)
             
         elif line == 'box':
-            #print 'BOX\t' + str(args)
+            print 'BOX\t' + str(args)
             add_box(edges,
                     float(args[0]), float(args[1]), float(args[2]),
                     float(args[3]), float(args[4]), float(args[5]))

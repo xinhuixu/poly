@@ -37,24 +37,25 @@ def add_box( points, x, y, z, width, height, depth ):
     x1 = x + width
     y1 = y - height
     z1 = z - depth
-
-    add_polygon(points, x, y, z, x, y1, z, x1, y, z)
-    add_polygon(points, x1, y1, z, x, y1, z, x1, y, z)
-    add_polygon(points, 
-
-'''
-    #front
-    add_edge(points, x, y, z, x+2, y+2, z+2)
-    add_edge(points, x, y1, z, x+2, y1+2, z+2)
-    add_edge(points, x1, y, z, x1+2, y+2, z+2)
-    add_edge(points, x1, y1, z, x1+2, y1+2, z+2)
-
-    #back
-    add_edge(points, x, y, z1, x+2, y+2, z1+2)
-    add_edge(points, x, y1, z1, x+2, y1+2, z1+2)
-    add_edge(points, x1, y, z1, x1+2, y+2, z1+2)
-    add_edge(points, x1, y1, z1, x1+2, y1+2, z1+2)
-'''
+    #NEEDS TO BE COUNTERCLOCKWISE
+    #FRONT
+    add_polygon(points, x, y, z, x, y1, z, x1, y1, z)
+    add_polygon(points, x, y, z, x1, y1, z, x1, y, z)
+    #BACK
+    add_polygon(points, x, y, z1, x, y1, z1, x1, y1, z1)
+    add_polygon(points, x, y, z1, x1, y1, z1, x1, y, z1)
+    #LEFT
+    add_polygon(points, x, y, z1, x, y1, z1, x, y1, z)
+    add_polygon(points, x, y, z1, x, y1, z, x, y, z)
+    #RIGHT
+    add_polygon(points, x1, y, z1, x1, y1, z1, x1, y1, z)
+    add_polygon(points, x1, y, z1, x1, y1, z, x1, y, z)
+    #TOP
+    add_polygon(points, x, y, z1, x, y, z, x1, y, z)
+    add_polygon(points, x, y, z1, x1, y, z, x1, y, z1)
+    #BOTTOM
+    add_polygon(points, x, y1, z1, x, y1, z, x1, y1, z)
+    add_polygon(points, x, y1, z1, x1, y1, z, x1, y1, z1)
 
 def add_sphere( edges, cx, cy, cz, r, step ):
     points = generate_sphere(cx, cy, cz, r, step)
