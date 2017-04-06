@@ -48,8 +48,8 @@ def add_box( points, x, y, z, width, height, depth ):
     add_polygon(points, x, y, z1, x, y1, z1, x, y1, z)
     add_polygon(points, x, y, z1, x, y1, z, x, y, z)
     #RIGHT
-    add_polygon(points, x1, y, z1, x1, y1, z1, x1, y1, z)
-    add_polygon(points, x1, y, z1, x1, y1, z, x1, y, z)
+    add_polygon(points, x1, y, z, x1, y1, z, x1, y1, z1)
+    add_polygon(points, x1, y1, z1, x1, y, z1, x1, y, z)
     #TOP
     add_polygon(points, x, y, z1, x, y, z, x1, y, z)
     add_polygon(points, x, y, z1, x1, y, z, x1, y, z1)
@@ -71,21 +71,23 @@ def add_sphere( edges, cx, cy, cz, r, step ):
         for longt in range(longt_start, longt_stop+1):
             index = lat * num_steps + longt
             
+            #eventually has to use MOD
             add_edge(edges, points[index][0],
                      points[index][1],
                      points[index][2],
                      points[index][0]+1,
                      points[index][1]+1,
                      points[index][2]+1 )
+    print edges
 
 def generate_sphere( cx, cy, cz, r, step ):
-    points = []
+    points = [] #step=0.01 #num_step=100
     num_steps = int(1/step+0.1)
     
     rot_start = 0
     rot_stop = num_steps
     circ_start = 0
-    circ_stop = num_steps
+    circ_stop = num_steps #i create 101 points in a "ring"
             
     for rotation in range(rot_start, rot_stop):
         rot = step * rotation
