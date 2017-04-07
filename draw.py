@@ -11,7 +11,9 @@ def draw_polygons( matrix, screen, color ):
     if len(matrix) < 3:
         print 'Need at least 3 points to draw POLYGON'
         return
-    
+    def draw_a_polygon(p0, p1, p2):
+        draw_line(matrix, p0[0], p0[1],
+                  p1[0
     point = 0
     while point < len(matrix) - 2:
         draw_line( int(matrix[point][0]),
