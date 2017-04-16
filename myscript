@@ -1,0 +1,25 @@
+torus
+250 400 0 10 200
+ident
+rotate
+x 15
+rotate
+z -15
+move
+-75 75 0
+apply
+sphere
+250 275 0 125
+#eyes
+sphere
+195 295 0 35
+sphere
+305 295 0 35
+#body
+sphere
+250 50 0 155
+torus
+250 225 0 5 35
+display
+save
+messenger.png
